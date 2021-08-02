@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tienda de Telefonía</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/funciones.js"></script>
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+	   <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <a class="ir-arriba" javascript:void(0) title="Volver arriba">
+        <span class="fa-stack">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+    <div id="contenedor_principal">
+        <div id="menu_principal">
+
+            <div id="logo">
+                <a href="index.html"><img src="imagenes/logo_con_fondo.png" width="80%"></a>
+            </div>
+           
+
+
+
+
+
+            <div id="buscador">
+                <input type="search" placeholder="Buscar..." autofocus>
+                <img src="imagenes/buscar.png">
+            </div>
+
+            <div id="carrito_login">
+                <form>
+                    <input type="text" placeholder="Usuario" required>
+
+                    <input type="password" placeholder="Contraseña" required>
+
+                    <input type="submit" value="Iniciar Sesion">
+
+                </form>
+
+                <img src="imagenes/carrito.png">
+            </div>
+
+
+        </div>
+		
+		
+		
+
+
+
+
+ 
+
+    <style>
+        .card {
+            max-width: 540px;
+        }
+    </style>
+
+    <script>
+
+        // Constante array articulos
+        const articulos = [
+            {
+                id: 1,
+                nombre: "Huawei P30",
+                desc: "Smartphone Alta Gama",
+                precio: "399.99",
+                img: "imagenes/huawei_p30/huawei_p30_frontal.jpg"
+
+            },
+			{
+                id: 2,
+                nombre: "Samgung Galaxy S10",
+                desc: "Smartphone Alta Gama",
+                precio: "699.99",
+                img: "imagenes/galaxy_s10/galaxy_s10_frontal.jpg"
+
+            }
+        ]
+
+        // Función que recoge el array cesta desde LocalStorage
+        function getCesta() {
+            cestaJson = localStorage.getItem("cesta");
+            return JSON.parse(cestaJson);
+        }
+
+        // Funcion para definir la cesta en LocalStorage
+        function setCesta(cestaObj) {
+            cestaJson = JSON.stringify(cestaObj);
+            localStorage.setItem("cesta", cestaJson);
+        }
+
+        // Función que borra la cesta entera.
+        function vaciarCesta() {
+            setCesta([]);
+            cargarCesta();
+        }
+
+        // Funcion que añade un producto a la cesta
+        function insCesta() {
+            var articulo = articulos.find(obj => { return obj.id == this.id });
+
+            //cestaJson = localStorage.getItem("cesta");
+            var cestaObj = getCesta();
+
+            var articuloCesta = cestaObj.find(obj => { return obj.id == articulo.id });
+            var cantidad = parseInt(document.getElementById(articulo.id + "Cantidad").value);
+
+            if (cantidad <= 0 || isNaN(cantidad)) {
+                return;
+            }
+
+            if (articuloCesta === undefined) {
+                console.log("No está en cesta");
+
+                //articuloObj = {id: articulo.id, cantidad: cantidad}
+
+                cestaObj.push({ id: articulo.id, cantidad: cantidad });
+
+
+            } else {
+
+                articuloCesta.cantidad += cantidad;
+                console.log(articuloCesta);
+
+            }
+
+
+            setCesta(cestaObj);
+
+            cargarCesta();
+
+        }
+
+        // Funcion que borra articulos
+        function borrarArticulo() {
+            articuloId = parseInt(this.id);
+            //console.log(articuloId);
+            var cesta = getCesta();
+            var articuloIndex = cesta.findIndex(obj => { return obj.id == articuloId });
+            console.log(articuloIndex);
+            var tdTotal = document.getElementById("total");
+            var tdIva = document.getElementById("iva");
+            tdTotal.innerHTML = 0;
+            tdIva.innerHTML = 0;
+            cesta.splice(articuloIndex, 1)
+            setCesta(cesta);
+            cargarCesta();
+        }
+
+        // Actualiza el subtotal segun el precio y cantidad
+        function actualizarSubtotal() {
+            var id = this.getAttribute("data-idcantidad");
+            var input = document.querySelector("[data-idcantidad='" + this.getAttribute("data-idcantidad") + "']");
+            var cantidad = input.value;
+            console.log(cantidad)
+            var cesta = getCesta();
+            var articuloCesta = cesta.find(obj => { return obj.id == id });
+            articuloCesta.cantidad = cantidad;
+            setCesta(cesta);
+            cargarCesta();
+            input = document.querySelector("[data-idcantidad='" + this.getAttribute("data-idcantidad") + "']");
+            input.focus();
+
+        }
+
+
+        // carga la cesta segun localStorage
+        function cargarCesta() {
+            var tbody = document.getElementById("tablaBody");
+            tbody.innerHTML = "";
+
+            var cesta = getCesta();
+            var total = 0;
+            for (articuloCesta of cesta) {
+                var articulo = articulos.find(obj => { return obj.id == articuloCesta.id });
+                var nombre = articulo.nombre;
+                var precio = articulo.precio;
+                var desc = articulo.desc;
+                var cantidad = articuloCesta.cantidad;
+
+                var input = document.createElement("input")
+                input.className = "form-control";
+                input.type = "number";
+                input.setAttribute("min", 1);
+                input.value = cantidad;
+                input.setAttribute("data-idCantidad", articulo.id);
+
+                var button = document.createElement("button");
+                button.className = "btn btn-sm btn-danger";
+                button.innerHTML = "<i class='material-icons'>delete</i>";
+
+                button.id = articulo.id + "del";
+                if (cantidad < 0 || cantidad == "") {
+                    return
+                }
+                var subtotal = precio * cantidad;
+                total += subtotal;
+                console.log(subtotal);
+
+                var producto = [articulo.id, nombre, input, precio, subtotal]
+                var tbody = document.getElementById("tablaBody");
+
+                var tr = document.createElement("tr");
+                tr.id = articulo.id + "c";
+                var i = 1;
+                for (item of producto) {
+                    var td = document.createElement("td");
+
+                    if (item == input) {
+                        td.appendChild(item);
+                    } else {
+                        td.innerHTML = item;
+                    }
+
+                    tr.appendChild(td);
+
+                    if (i == 5) {
+                        var td = document.createElement("td");
+                        tr.appendChild(td);
+                        td.appendChild(button);
+
+                    }
+                    i++;
+                }
+                tbody.appendChild(tr);
+
+
+                button.addEventListener('click', borrarArticulo);
+                input.addEventListener('change', actualizarSubtotal);
+                var tdTotal = document.getElementById("total");
+                var tdIva = document.getElementById("iva");
+                tdTotal.innerHTML = total.toFixed(2);
+                tdIva.innerHTML = (total * 0.21).toFixed(2);
+            }
+        }
+
+        // Función carga los articulos desde el array Articulos
+        function cargarArticulos() {
+            var container = document.getElementById("cont");
+
+            for (item of articulos) {
+                var card = document.createElement("div");
+                card.className = "card mb-3";
+                var div = document.createElement("div");
+                div.className = "row no-gutters";
+                var divmd4 = document.createElement("div");
+                divmd4.className = "col-md-4";
+                var img = document.createElement("img");
+                img.className = "card-img";
+                var divmd8 = document.createElement("div");
+                divmd8.className = "col-md-8";
+                var cardbody = document.createElement("div");
+                cardbody.className = "card-body";
+                var h4 = document.createElement("h4");
+                h4.className = "card-title";
+                var h5 = document.createElement("h5");
+                h5.className = "card-text";
+                var p = document.createElement("p");
+                p.className = "card-text";
+                var formRow = document.createElement("div");
+                formRow.className = "form-row";
+                var input = document.createElement("input")
+                input.setAttribute("min", 0);
+                input.className = "col-sm-6 form-control mr-1";
+                input.type = "number";
+                var button = document.createElement("button");
+                button.className = "btn btn-sm btn-primary";
+                button.innerHTML = "<i class='material-icons'>add_shopping_cart</i>";
+
+                card.appendChild(div);
+                div.appendChild(divmd4);
+                div.appendChild(divmd8);
+                divmd8.appendChild(cardbody);
+                divmd4.appendChild(img);
+                cardbody.appendChild(h4);
+                cardbody.appendChild(p);
+                cardbody.appendChild(h5);
+                
+                cardbody.appendChild(formRow);
+                formRow.appendChild(input);
+                formRow.appendChild(button);
+
+
+                img.setAttribute("src", item.img);
+                h4.innerText = item.nombre;
+
+                h5.innerText = item.precio + "€";
+
+                p.innerText = item.desc;
+                input.id = item.id + "Cantidad";
+                button.id = item.id;
+                container.appendChild(card);
+            }
+
+        }
+
+        // Función que  realiza la carga de  articulos, recoge localStorage
+        // y declara eventos
+        function iniciar() {
+            cargarArticulos();
+            for (item of articulos) {
+                var but = document.getElementById(item.id);
+                but.addEventListener('click', insCesta);
+            }
+            cestaJson = localStorage.getItem("cesta");
+            console.log(cestaJson);
+
+            if (cestaJson === null) {
+                cestaJson = JSON.stringify([]);
+                localStorage.setItem("cesta", cestaJson);
+            } else {
+                cargarCesta();
+            }
+            var butVaciar = document.getElementById("vaciar");
+            butVaciar.addEventListener('click', vaciarCesta);
+        }
+
+        // funcion onload
+        window.onload = iniciar;
+
+
+
+    </script>
+
+<body>
+   
+    <div class="container">
+
+        <div class="row">
+
+            <div id="cont" class="container col-md-6">
+                <h2 class="display-4">Productos</h2>
+				
+                <!-- Productos -->
+            </div>
+			
+
+            <div class="container table-responsive col-md-6">
+                <h2 class="display-4">Tu Carrito</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Descipción</th>
+                            <th>Cantidad</th>
+                            <th>Precio(€)</th>
+                            <th>Subtotal</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaBody">
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><b>IVA 21%</b></td>
+                            <td id="iva">0</td>
+                        </tr>
+                        <tr class="table-borderless">
+                            <td colspan="4"></td>
+                            <td><b>Total €</b></td>
+                            <td id="total">0</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <button id="vaciar" type="button" class="btn btn-danger">Borrar
+                    Cesta</button>
+				<button id="comprar" type="button" class="btn btn-danger" onclick="comprar();">Realizar Compra</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+      
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+    <footer id="pie">
+
+        <div id="texto_footer">
+            <h3>PHONE HOUSE ESPAÑA S.L</h3>
+            <p>Teléfono: 692 840 151</p>
+            <p>C/ Robles, Madrid, 14540 España</p>
+            <div id="mapa">
+                <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47222832.88105984!2d-10.142746067134134!3d43.7468430747135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc987754637a613c0!2sComplejo%20Polideportivo%20San%20Roque!5e0!3m2!1ses!2ses!4v1581244377792!5m2!1ses!2ses" width="200" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+
+        </div>
+
+        <div id="texto_footer">
+            <p>MÉTODOS DE PAGO ACEPTADOS:</p>
+            <img src="imagenes/paypal.png" width="10%">
+            <img src="imagenes/transferencia-bancaria.png" width="10%">
+            <img src="imagenes/visa.png" width="10%">
+            <img src="imagenes/ebay.png" width="10%">
+            <img src="imagenes/union.png" width="10%">
+            <img src="imagenes/amazonas.png" width="10%">
+
+
+
+
+        </div>
+        <div id="texto_footer">
+            <h3>¿QUIERES TRABAJAR CON NOSOTROS?</h3>
+            <br>
+            <p>TECNOLOGÍAS UTILIZADAS: </p>
+            <img src="imagenes/html.png" width="10%">
+            <img src="imagenes/transferencia-bancaria.png" width="10%">
+            <img src="imagenes/visa.png" width="10%">
+            <img src="imagenes/ebay.png" width="10%">
+
+
+        </div>
+
+        
+
+
+
+    </footer>
+
+
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,614 @@
+
+#menu_principal {
+	background-color: #00244d;
+;
+	width: 100%;
+	height: 9em;
+}
+
+#contenedor_principal {
+	width: 100%;
+	
+}
+
+#buscador input {
+	width: 80%;
+	height: 30px;
+	text-align: left;
+	font-size: 100%;
+	padding: 30px;
+	border: 2px solid #0082a4;
+	border-radius: 10px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#carrito_login  form{
+	float: right;
+    padding: 10px;
+	
+	
+}
+#carrito_login  form {
+	padding: 5%;
+}
+#carrito_login  form input{
+	width: 60%;
+	display: block;
+	border-radius: 10px;
+	text-align: center;
+	margin: 0 auto;
+	
+}
+
+#carrito_login {
+	width: 15%;
+	height: 50%;
+	margin: 0 auto;
+	padding: 0;
+	display: inline;
+	margin-top: -5%;
+	float: right;
+	margin-left: 25%;
+	border-radius: 50px;
+	text-align: center;
+}
+#carrito_login form input{
+    height: 2em;
+}
+#carrito_login img {
+	    width: 25%;
+    margin-left: 50%;
+    
+	
+	
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 1%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #00244d; 
+  border-radius: 10px;
+    background-color: #00244d;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0082a4; 
+  border-radius: 11em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00244d; 
+}
+
+
+
+#logo {
+	width: 20%;
+	float: left;
+}
+
+#buscador {
+	width: 20%;
+	margin: 0 auto;
+}
+#buscador img{
+	width: 20%;
+	float: right;
+	display: inline;
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#menu_desplegable {
+	position: relative;
+	background-color: #00244d;
+	list-style:  none;
+	width: 75%;
+	height: 10%;
+	font-size:2.5em;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 10px;
+	text-decoration: none;
+	visibility: hidden;
+	text-align: center;
+	border: 1px solid #0082a4;
+    margin-top: -2.5%;
+    margin-bottom: 1%;
+}
+#menu_desplegable li {
+
+	display: inline;
+	text-align: left;
+}
+
+li {
+	text-decoration: none;
+	color: 	white;
+
+}
+
+#desplegable {
+	margin-top: 8%;
+	float: left;
+	position: absolute;
+	background-color: #0082a4;
+	border-radius: 10px;
+	text-align: center;
+	width: 10%;
+	padding: 10px;
+   
+}
+
+#desplegable_ocultar {
+	margin-top: 7%;
+	float: left;
+	position: absolute;
+	background-color: #0082a4;
+	border-radius: 10px;
+	text-align: center;
+	width: 15%;
+	padding: 10px;
+}
+
+.texto_inicio {
+	background-color: #f0f0f0;
+	width: 20%;
+	margin:0 auto;
+	text-align: center;
+	font-size: 0.7em;
+	border: 1px solid #cdcdcd;
+	padding: 5px;
+	border-radius: 20px;
+    color: #4a4a4a;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #0082a4;
+	
+}
+
+.producto {
+    margin-top: 1%;
+    border-radius: 1em;
+    width: 25%;
+    display: inline-block;
+    margin-left: 6%;
+}
+textarea {
+    background-color: #0082a4;
+    max-height: 10em;
+    max-width: 10em;
+    border-radius: 10px;
+    color: white;
+    text-align: left;
+}
+
+
+
+/*ESTILOS ADICCIONALES*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+*
+{
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+label{
+    margin: 10px;
+    padding: 5%;
+    position: relative;
+}
+
+h3{
+padding: 4%;    
+}
+#formulario_iniciar{
+    color:   #0082a4;
+}
+
+
+
+
+body
+{
+    font-family: 'Roboto', sans-serif;
+}
+a
+{
+    text-decoration: none;
+}
+.product-card {
+    width: 380px;
+    position: relative;
+    box-shadow: 0 2px 7px #dfdfdf;
+    margin: 50px auto;
+    background: #fafafa;
+    border-radius:  30px;
+   
+
+}
+
+.badge {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: #E85E5E;
+    color: #fff;
+    padding: 3px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    padding: 50px;
+    background: #f5f0f0;
+    border-radius: 10%;
+}
+
+.product-tumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-details {
+    padding: 3%;
+}
+
+.product-details h4 :hover {
+    padding:2%;
+}
+
+.product-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: gray;
+    margin-bottom: 18px;
+}
+
+.product-details h4 a {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    color: #363636;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 5%
+}
+
+.product-details h4 a:hover {
+    color: #0082a4;
+}
+
+.product-details p {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 18px;
+    color: #999;
+}
+
+.product-bottom-details {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.product-bottom-details div {
+    float: left;
+    width: 50%;
+}
+
+.product-price {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+
+.product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.product-links {
+    display: inline;
+text-align: right;}
+
+.product-links a {
+    display: inline-block;
+    margin-left: 5px;
+    color: black;
+    transition: 1s;
+    font-size: 17px;
+}
+
+.product-links a:hover {
+    color: lightseagreen;
+}
+
+
+
+/*ESTILOS ADICCIONALES 2*/
+.ir-arriba{
+  display: flex;
+  background-repeat:no-repeat;
+  font-size:20px;
+  color:black;
+  cursor:pointer;
+  position:fixed;
+  bottom:10px;
+  right:10px;
+  z-index:2;
+}
+#pie {
+    background-color: #00244d;
+    width: 100%;
+  border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 150px;
+    color:#0082a4;
+    
+    
+    
+}
+#pie p {
+    padding: 1%;
+}
+
+#titulo_pie {
+    font-size:1.5em;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#texto_footer {
+    text-align: center;
+    margin-left: 2%;
+    width: 30%;
+    display: inline-block;
+    
+}
+#texto_footer img:hover{
+    
+    width: 15%;
+}
+
+#mapa {
+    border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+#formulario_contacto {
+    width: 20%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #cdcdcd;
+    border-radius: 15px;
+    margin-bottom: 2%;
+    background-color: #00244d;
+    color: #0082a4;
+    font-weight: bold;
+    text-align: left;
+    padding: 1%;
+margin-top: 1%;
+}
+#formulario_contacto input {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #cdcdcd;
+    border-radius: 15px;
+    margin-bottom: 2%;
+    background-color: #00244d;
+    color: #0082a4;
+    font-weight: bold;
+    padding: 1%;
+    padding: 0;
+}
+
+
+
+#volver {
+    color: black;
+}
+
+#enviar:hover {
+    color: white;
+    background-color: #7CEA91;
+}
+#enviar{
+    height: 5em;
+}
+
+
+/*ESTILOS DE PRODUCTO*/
+
+
+
+
+
+/**
+ * Variables
+ */
+/**
+ * Base Styles
+ * 1. Improve box model
+ * 2. Enable fluid images
+ */
+*, *:before, *:after {
+  box-sizing: border-box;
+  /* 1 */
+}
+body {
+  background-color: #F5F5F5;
+}
+img {
+  max-width: 100%;
+  /* 2 */
+}
+/**
+ * Container Styles
+ */
+.container {
+  max-width: 30em;
+  margin: 0 auto;
+  padding: 1em;
+}
+/**
+ * Helper Styles
+ */
+.ir {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/**
+ * Gallery Styles
+ * 1. Enable fluid images
+ */
+.gallery {
+  overflow: hidden;
+}
+.gallery__hero {
+  overflow: hidden;
+  position: relative;
+  padding: 2em;
+  margin: 0 0 0.3333333333em;
+  background: #fff;
+}
+.is-zoomed .gallery__hero {
+  cursor: move;
+}
+.is-zoomed .gallery__hero img {
+  max-width: none;
+  position: absolute;
+  z-index: 0;
+  top: -50%;
+  left: -50%;
+}
+.gallery__hero-enlarge {
+  position: absolute;
+  right: 0.5em;
+  bottom: 0.5em;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  opacity: 0.5;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iNS4wIC0xMC4wIDEwMC4wIDEzNS4wIiBmaWxsPSIjMzRCZjQ5Ij48cGF0aCBkPSJNOTMuNTkzIDg2LjgxNkw3Ny4wNDUgNzAuMjY4YzUuNDEzLTYuODczIDguNjQyLTE1LjUyNiA4LjY0Mi0yNC45MTRDODUuNjg3IDIzLjEwNCA2Ny41OTMgNSA0NS4zNDMgNVM1IDIzLjEwNCA1IDQ1LjM1NGMwIDIyLjI0IDE4LjA5NCA0MC4zNDMgNDAuMzQzIDQwLjM0MyA5LjQgMCAxOC4wNjItMy4yNCAyNC45MjQtOC42NTNsMTYuNTUgMTYuNTZjLjkzNy45MjcgMi4xNjIgMS4zOTYgMy4zODggMS4zOTYgMS4yMjUgMCAyLjQ1LS40NyAzLjM5LTEuMzk2IDEuODc0LTEuODc1IDEuODc0LTQuOTEyLS4wMDItNi43ODh6bS00OC4yNS0xMC43MWMtMTYuOTU0IDAtMzAuNzUzLTEzLjc5OC0zMC43NTMtMzAuNzUyIDAtMTYuOTY0IDEzLjgtMzAuNzY0IDMwLjc1My0zMC43NjQgMTYuOTY0IDAgMzAuNzUzIDEzLjggMzAuNzUzIDMwLjc2NCAwIDE2Ljk1NC0xMy43ODggMzAuNzUzLTMwLjc1MyAzMC43NTN6TTYzLjAzMiA0NS4zNTRjMCAyLjM0NC0xLjkwNyA0LjI2Mi00LjI2MiA0LjI2MmgtOS4xNjR2OS4xNjRjMCAyLjM0NC0xLjkwNyA0LjI2Mi00LjI2MiA0LjI2Mi0yLjM1NSAwLTQuMjYyLTEuOTE4LTQuMjYyLTQuMjYydi05LjE2NGgtOS4xNjRjLTIuMzU1IDAtNC4yNjItMS45MTgtNC4yNjItNC4yNjIgMC0yLjM1NSAxLjkwNy00LjI2MiA0LjI2Mi00LjI2Mmg5LjE2NHYtOS4xNzVjMC0yLjM0NCAxLjkwNy00LjI2MiA0LjI2Mi00LjI2MiAyLjM1NSAwIDQuMjYyIDEuOTE4IDQuMjYyIDQuMjYydjkuMTc1aDkuMTY0YzIuMzU1IDAgNC4yNjIgMS45MDcgNC4yNjIgNC4yNjJ6Ii8+PC9zdmc+);
+  background-repeat: no-repeat;
+  transition: opacity 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.gallery__hero-enlarge:hover {
+  opacity: 1;
+}
+.is-zoomed .gallery__hero-enlarge {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iNS4wIC0xMC4wIDEwMC4wIDEzNS4wIiBmaWxsPSIjMzRCZjQ5Ij48cGF0aCBkPSJNOTMuNTkzIDg2LjgxNkw3Ny4wNDUgNzAuMjY4YzUuNDEzLTYuODczIDguNjQyLTE1LjUyNiA4LjY0Mi0yNC45MTRDODUuNjg3IDIzLjEwNCA2Ny41OTMgNSA0NS4zNDMgNVM1IDIzLjEwNCA1IDQ1LjM1NGMwIDIyLjI0IDE4LjA5NCA0MC4zNDMgNDAuMzQzIDQwLjM0MyA5LjQgMCAxOC4wNjItMy4yNCAyNC45MjQtOC42NTNsMTYuNTUgMTYuNTZjLjkzNy45MjcgMi4xNjIgMS4zOTYgMy4zODggMS4zOTYgMS4yMjUgMCAyLjQ1LS40NyAzLjM5LTEuMzk2IDEuODc0LTEuODc1IDEuODc0LTQuOTEyLS4wMDItNi43ODh6TTE0LjU5IDQ1LjM1NGMwLTE2Ljk2NCAxMy44LTMwLjc2NCAzMC43NTMtMzAuNzY0IDE2Ljk2NCAwIDMwLjc1MyAxMy44IDMwLjc1MyAzMC43NjQgMCAxNi45NTQtMTMuNzkgMzAuNzUzLTMwLjc1MyAzMC43NTMtMTYuOTUzIDAtMzAuNzUzLTEzLjgtMzAuNzUzLTMwLjc1M3pNNTguNzcyIDQ5LjYxSDMxLjkyYy0yLjM1NSAwLTQuMjYzLTEuOTA3LTQuMjYzLTQuMjZzMS45MDgtNC4yNjMgNC4yNjItNC4yNjNINTguNzdjMi4zNTQgMCA0LjI2MiAxLjkwOCA0LjI2MiA0LjI2MnMtMS45MSA0LjI2LTQuMjYyIDQuMjZ6Ii8+PC9zdmc+);
+}
+.gallery__thumbs {
+  text-align: center;
+  background: #fff;
+}
+.gallery__thumbs a {
+  display: inline-block;
+  width: 20%;
+  padding: 0.5em;
+  opacity: 0.75;
+  transition: opacity 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.gallery__thumbs a:hover {
+  opacity: 1;
+}
+.gallery__thumbs a.is-active {
+  opacity: 0.2;
+}
+
+#informacion_producto {
+    padding: 5%;
+    position: relative;
+    background-color: #40a8de;
+    border: 1px solid #c0c0c0;
+    border-radius: 12%;
+}
+
+
+#informacion_producto h1{
+    padding: 2%;
+    text-align: center;
+}
+
+#informacion_producto p{
+  color: gainsboro;
+	font-weight: 500;
+    padding: 1%;
+}
+
+
+#precio p {
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+    color: #0082a4;
+    
+}
+
+#cantidad_carrito2 {
+    background-color:  #0082a4;
+    font-size: 1em;
+    color: #00244d;
+  z-index: 0;
+    margin-left: 75%;
+    border-radius: 10%;
+   
+    
+}
+
+#vaciar {
+    color:#00244d;
+    background-color: #0082a4;
+}
+
+
+
+
